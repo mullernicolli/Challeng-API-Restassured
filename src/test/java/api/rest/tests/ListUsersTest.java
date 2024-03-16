@@ -25,4 +25,18 @@ public class ListUsersTest {
                 .body("total_pages", equalTo(2))
                 .body("data.size()", equalTo(6));
     }
+
+    @Test
+    public void testNotFoundPage() {
+        // Solicitar página inexistente
+        given()
+                .param("page", 3)
+                .param("per_page", 6)
+            .when()
+                .get("/users")
+            .then()
+                .statusCode(200)
+            .body("data.size()", equalTo(0))
+                .body("total_pages", equalTo(2));
+    }
 }

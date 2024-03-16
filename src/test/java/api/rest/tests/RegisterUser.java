@@ -13,14 +13,11 @@ public class RegisterUser {
     public void testRegisterANewUserWithSuccess() {
         // Configure the Rest API access path
         baseURI = "https://reqres.in/api";
+        UserPOJO.User newUser = new UserPOJO.User("Nicolli", "nic@teste.com", "senha123");
 
         // Register a new user
         given()
-                .body("{\n" +
-                        "  \"username\": \"Nicolli\",\n" +
-                        "  \"email\": \"nic@teste.com\",\n" +
-                        "  \"password\": \"teste123\"\n" +
-                        "}")
+                .body(newUser)
                 .contentType(ContentType.JSON)
         .when()
             .post("/register")
@@ -32,13 +29,13 @@ public class RegisterUser {
 
     @Test
     public void testInsertInvalidEmailWhenRegisteringANewUser() {
+        // Configure the Rest API access path
+        baseURI = "https://reqres.in/api";
+        UserPOJO.User newUser = new UserPOJO.User("Nicolli", "nic@teste", "senha123");
+
         // Insert invalid email when registering new user
         given()
-                .body("{\n" +
-                        "  \"username\": \"Nicolli\",\n" +
-                        "  \"email\": \"nic@teste\",\n" +
-                        "  \"password\": \"teste123\"\n" +
-                        "}")
+                .body(newUser)
                 .contentType(ContentType.JSON)
         .when()
                 .post("/register")
