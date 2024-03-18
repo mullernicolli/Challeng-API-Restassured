@@ -1,4 +1,4 @@
-package api.rest.tests;
+package com.apirest.tests;
 
 public class UserPOJO {
     public static class User {

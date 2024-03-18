@@ -1,4 +1,4 @@
-package api.rest.tests;
+package com.apirest.tests;
 
 import org.junit.Test;
 import static io.restassured.RestAssured.*;

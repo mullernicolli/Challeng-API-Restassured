@@ -1,11 +1,9 @@
-package api.rest.tests;
+package com.apirest.tests;
 
 import io.restassured.http.ContentType;
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
 public class RegisterUser {
